@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <title>Tsourakis Thesis</title>
+    
+    <meta name="author" content="Nikos Tsourakis">
+    
+    <meta name="description" content="My thesis presentation">
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/impress-progress.css" rel="stylesheet" />
+    
+    <script src="./js/jquery.1.7.1.min.js"></script>
+    <script src="./js/img-svg.js"></script>
+	<script src="./js/Chart.js"></script>
+
+</head>
+
+<body class="impress-not-supported">
+
+<div id="fallback-message">
+	You must be either using a mobile browser or an ancient one!<br/>If the latter, I sincerely suggest you come back in <a href="http://www.google.com/chrome/" target="_blank">Chrome</a>.
+</div>
+
+<div id="hint">
+	<p>
+    	Use spacebar, arrow keys or page up / down to navigate
+	</p>
+</div>
+
+<script>
+
+	if ('ontouchstart' in document.documentElement) 
+	{
+	  document.querySelector('.hint').innerHTML = '<p>Tap on the left or right to navigate</p>';
+	}
+
+	document.addEventListener("impress:substepactive", function(e) {
+		if (e.srcElement.classList.contains("downit")) {
+		    e.srcElement.classList.add("down");
+		    e.srcElement.classList.remove("downit");
+		} else
+		if (e.srcElement.classList.contains("down")) {
+		    e.srcElement.classList.add("downit");
+		    e.srcElement.classList.remove("down");
+		}
+	});
+	
+</script>
+
+<!-- Include a progress bar -->
+<div class="progressbar"><div></div></div>
+<div class="progress"></div>
+
+<!-- Presentation -->
+<div id="impress">
+       
+	<!-- Zoom out and show the whole presentation -->
+	<div id="overview" class="step" data-x="0" data-y="0" data-scale="8" data-rotate="0"></div> 
+    
+    <!-- Show the title -->
+    <div id="title" class="step" data-x="-2000" data-y="-2300" data-z='500' data-rotate='60' data-rotate-x='-15' data-rotate-y='15' data-scale='1'>
+    
+        <div class="info">Geneva, October 2013</div>
+    
+        <h1>
+        
+            <span>DEVELOPMENT & EVALUATION OF MULTILINGUAL MULTIMODAL DIALOGUE SYSTEMS ON MOBILE DEVICES</span>
+        
+            <div class="content" align="center"><img src="img/unige.png" width="300"></div>
+            <div class="subtitle">&nbsp;&nbsp;&nbsp;Nikolaos Tsourakis</div>
+            <div class="subtitle">Thesis defense for the degree of Doctor of Philosophy</div>
+        
+        </h1>    
+    </div>
+       
+    <!-- Show the elevator pitch -->
+    <!--<div id="app-8" class="step" data-x="-500" data-y="-1800">
+		<img src="img/elevator.png" width="400">    
+        <div class="distribute-horizontal substep">
+            <div class="box bubble">Design</div>
+            <div class="box bubble">Interaction</div>
+            <div class="box bubble">Evaluation</div>
+        </div>
+    </div>-->    
+    <!--
+    <div id="app-8-2" class="step invisible" data-x="-2500" data-y="-1800">
+        <img src="img/elevator.png" width="400">
+        <div class="box ballon ballon-down">deployment</div>
+        <div class="box ballon ballon-down down2">evaluation</div>
+    </div>
+    
+    <div id="app-8-3" class="step invisible" data-x="-2500" data-y="-1800">
+        <img src="img/elevator.png" width="400">
+        <div class="box ballon ballon-down">deployment</div>
+        <div class="box ballon ballon-down down2">evaluation</div>
+        <div class="box ballon ballon-up">mobile</div>
+        <div class="box ballon ballon-up up2">mobile</div>
+        <div class="box ballon ballon-up up3">speech</div>
+        <div class="box ballon ballon-up up4">multimodal</div>
+    </div>
+    
+    <div id="app-8-4" class="step invisible" data-x="-2500" data-y="-1800">
+        <img src="img/elevator.png" width="400">
+        <div class="box ballon ballon-down">img.png</div>
+        <div class="box ballon ballon-down down2">img@2x.png</div>
+        <div class="box ballon ballon-up">ldpi</div>
+        <div class="box ballon ballon-up up2">mdpi</div>
+        <div class="box ballon ballon-up up3">hdpi</div>
+        <div class="box ballon ballon-up up4">xhdpi</div>
+        <div class="box ballon ballon-up up5">tvdpi</div>
+    </div>
+-->
+<!--
+    <div id="elevator" class="step slide" data-x="-2500" data-y="-1800" data-scale="0.5">
+        <table width="900" border="0">
+            <tr>
+            <td>&nbsp;<img src="img/elevator.png" width="400"></td>
+            <td>&nbsp;<div class="substep">
+            	<img src="img/evaluation-low.png" width="400" align="middle">
+             </div>
+</td>
+            
+        </table>		
+    </div>-->
+    
+    <!-- Introduσing the themes of the presentation -->
+	<div id="introduction" class="cube">
+        
+	<div class="bottomFace step" data-x="1500" data-y="-2320" data-z="-1180" data-rotate-x="60" data-rotate-y="180" data-rotate-z="45" data-scale="1">
+		<h2>Overview</h2>
+           	<table>
+                <td width="50"></td>
+                <td>
+                    <q>Address specific issues related to the deployment and evaluation of mobile applications that use speech in combination with different modalities</q>
+                </td>
+                <td width="50"></td>
+            </table>
+
+            <p></p>
+            
+            <table>
+				<td width="50"></td>
+                <td>
+                    <div class="distribute-horizontal substep">
+                        <div class="box bubble">Why Speech?</div>
+                        <div class="box bubble">Why Mobility?</div>
+                        <div class="box bubble">Why Multimodality?</div>
+                    </div>
+                </td>                   
+            </table>
+        </div>
+        
+		<div class="topFace step" data-x="1500" data-y="-2625" data-z="-1005" data-rotate-x="60" data-rotate-y="0" data-rotate-z="45" data-scale="1">
+        	<h2>Why Speech?</h2>
+            <table>
+                <td width="150"></td>
+                <td>
+                    <div id="opacity-image-1">
+                        <div class="image-wrapper-1">
+                            <img src="img/Babel.jpg" width="600">
+                            <div class="caption">Babel</div>
+                        </div>
+                    </div>
+				</td>
+	            <td width="50"></td>
+            </table>  
+        </div>
+        
+        <!--<div class="topFace step invisible" data-x="1500" data-y="-2625" data-z="-1005" data-rotate-x="60" data-rotate-y="0" data-rotate-z="45" data-scale="1">
+        	<h2>Why Speech?</h2>
+            <div id="opacity-image-2">
+                <div class="image-wrapper-2">
+                    <img src="img/Mezzofanti.jpg" width="350">
+                    <div class="caption">Mezzofanti Giuseppe Caspar (1774-1849)</div>
+	            </div>
+			</div>
+        </div>-->
+        
+        <div id="impact-anim1" class="topFace step invisible" data-x="1500" data-y="-2625" data-z="-1005" data-rotate-x="60" data-rotate-y="0" data-rotate-z="45" data-scale="1">
+        	<h2>Why Speech?</h2>
+            <table width="900" border="0"> 				
+                <td width="569">
+                    <div id="opacity-image-3">
+                        <div class="image-wrapper-3">
+                            <img src="img/toyrex.png" width="450">
+                            <div class="caption">Radio Rex Toy (1911)</div>
+                        </div>
+                    </div> 
+                </td>
+            	<td width="321">
+            		<div class="substep">    
+    					<p class="animation"><em>Revenue $1B</em></p>
+      				</div>
+            	</td>            
+            </table>
+        </div>
+        
+
+      <!--  <div class="leftFace step" data-x="1375" data-y="-2410" data-z="-985" data-rotate-x="-30" data-rotate-y="-45" data-rotate-z="0" data-scale="0.5">
+        </div>-->
+        
+        <div class="rightFace step visible" data-x="1625" data-y="-2410" data-z="-985" data-rotate-x="-30" data-rotate-y="45" data-rotate-z="0" data-scale="1">
+            <h2>Why Mobile?</h2>
+            <table>
+	            <td width="160"></td>
+    	        <td>
+                    <div id="opacity-image-4">
+                        <div class="image-wrapper-4">
+                            <img src="img/Eniac.jpg" width="600">
+                            <div class="caption">ENIAC (1946)</div>
+                        </div>
+                    </div>
+    			</td>
+				<td width="50"></td>
+            </table>          
+        </div>
+  
+        <div class="rightFace step invisible" data-x="1625" data-y="-2410" data-z="-985" data-rotate-x="-30" data-rotate-y="45" data-rotate-z="0" data-scale="1">
+            <h2>Why Mobile?</h2>
+            <table>
+            	<td width="120"></td>
+                <td>
+                    <div id="opacity-image-5">
+                        <div class="image-wrapper-5">
+                            <img src="img/cellphone-evolution-nesting-dolls-500x332.jpg" width="700">
+                            <div class="caption">... becoming smaller</div>
+                        </div>
+                    </div>
+                </td>
+				<td width="50"></td>
+            </table>          
+        </div>
+        
+        <!--<div class="rightFace step invisible" data-x="1625" data-y="-2410" data-z="-985" data-rotate-x="-30" data-rotate-y="45" data-rotate-z="0" data-scale="1">
+            <h2>Why Mobile?</h2>
+            <div id="opacity-image-6">
+                <div class="image-wrapper-6">
+                    <img src="img/white_paper_c11-520862-04.jpg" width="600">
+                    <div class="caption">Data traffic per portable device</div>
+	            </div>
+			</div> 
+        </div>-->
+        
+		<div class="backRightFace step" data-x="1625" data-y="-2535" data-z="-1200" data-rotate-x="-30" data-rotate-y="135" data-rotate-z="0" data-scale="1">            
+        	<h2>Why Multimodal?</h2>		
+            <table>
+                <td width="80"></td>
+                <td>
+                    <div id="opacity-image-7">
+    	                <div class="image-wrapper-7">
+	                        <img src="img/multimodal.jpg" width="790">
+                        	<div class="caption">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Input/Output modalities</div>
+                    	</div>
+					</div> 
+                </td>
+                <td width="50"></td>
+            </table>   			
+        </div>
+        
+        <div class="backRightFace step invisible" data-x="1625" data-y="-2535" data-z="-1200" data-rotate-x="-30" data-rotate-y="135" data-rotate-z="0" data-scale="1">
+            <h2>Why Multimodal?</h2>
+            <table>
+	            <td width="30"></td>
+    	        <td>
+                    <div id="opacity-image-8">
+	                    <div class="image-wrapper-8">
+    		                <img src="img/us__en_us__predictions__smell_story_map__900x587.jpg" width="870">
+            		        <div class="caption"></div>
+                    	</div>
+                    </div> 
+                </td>
+                <td width="50"></td>
+			</table>   		
+        </div>
+
+        <div class="backLeftFace step" data-x="1375" data-y="-2535" data-z="-1200" data-rotate-x="-30" data-rotate-y="225" data-rotate-z="0" data-scale="1">
+			<h2>Research Questions</h2>
+            <ul>
+				<li class="substep"><em>Design.</em> What architectures for mobile platforms can be incorporated in order to offer efficient and robust systems? Will the design be based on open standards? Will this infrastructure be easily extensible and usable by others?</li>
+            	<li class="substep"><em>Interaction.</em> What are the appropriate output modalities for each situation? What kinds of different user interactions should be supported by the system?</li>
+            	<li class="substep"><em>Evaluation.</em> What makes a system more successful compared to another? What kind of evaluation should be performed, taking into account different metrics?</li>  
+        	</ul>
+        </div>
+        
+       
+        <!--<div class="bottomFace step" data-x="1500" data-y="-2320" data-z="-1180" data-rotate-x="60" data-rotate-y="180" data-rotate-z="45" data-scale="0.5">
+        
+        </div>-->
+        
+    </div>
+    
+    <!-- Overview of the presentation -->
+	<div id="outline-1" class="step invisible" data-x="2500" data-y="-2035" data-z="-1200">
+        <h2>Overview of the Presentation</h2>
+        <ul class="option-list">
+            <li>
+                <span>1</span>The Regulus Platform
+                <span>Open-source platform for constructing rule-based medium-vocabulary spoken dialogue applications</span>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="outline-1-2" class="step invisible" data-x="2500" data-y="-2035" data-z="-1200">
+    	<h2>Overview of the Presentation</h2>
+        <ul class="option-list">
+            <li>
+                <span>1</span>The Regulus Platform
+                <span>Open-source platform for constructing rule-based medium-vocabulary spoken dialogue applications</span>
+            </li>
+            <li>
+                <span>2</span>Design
+				<span>Two architectures for network speech recognition are designed and used in different mobile spoken dialogue applications</span>
+            </li>
+        </ul>
+
+	</div>
+
+	<div id="outline-1-3" class="step invisible" data-x="2500" data-y="-2035" data-z="-1200">
+        <h2>Overview of the Presentation</h2>
+        <ul class="option-list">
+            <li>
+                <span>1</span>The Regulus Platform
+                <span>Open-source platform for constructing rule-based medium-vocabulary spoken dialogue applications</span>
+            </li>
+            <li>
+                <span>2</span>Design
+                <span>Two architectures for network speech recognition are designed and used in different mobile spoken dialogue applications</span>
+            </li>
+            <li>
+                <span>3</span>Interaction
+                <span>User studies are presented using different mixtures of multimedia as output modalities and hand gestures as input ones</span>
+            </li>
+        </ul>
+	</div>
+    
+	<div id="outline-1-4" class="step invisible" data-x="2500" data-y="-2035" data-z="-1200">
+        <h2>Overview of the Presentation</h2>
+        <ul class="option-list">
+            <li>
+                <span>1</span>The Regulus Platform
+                <span>Open-source platform for constructing rule-based medium-vocabulary spoken dialogue applications</span>
+            </li>
+            <li>
+                <span>2</span>Design
+                <span>Two architectures for network speech recognition are designed and used in different mobile spoken dialogue applications</span>
+            </li>
+            <li>
+                <span>3</span>Interaction
+                <span>User studies utilizing different mixtures of multimedia as output modalities and hand gestures as input ones</span>
+            </li>
+              <li>
+                <span>4</span>Evaluation
+ 				<span>A quality model based on the ISO/IEC 9126 is defined for mobile medical translation systems</span>
+            </li>
+        </ul>
+    </div>
+	
+    <div id="outline-1-5" class="step invisible" data-x="2500" data-y="-2035" data-z="-1200">
+        <h2>Overview of the Presentation</h2>
+        <ul class="option-list">
+            <li>
+                <span>1</span>The Regulus Platform
+                <span>Open-source platform for constructing rule-based medium-vocabulary spoken dialogue applications</span>
+            </li>
+            <li>
+                <span>2</span>Design
+                <span>Two architectures for network speech recognition are designed and used in different mobile spoken dialogue applications</span>
+            </li>
+            <li>
+                <span>3</span>Interaction
+                <span>User studies are presented using different mixtures of multimedia as output modalities and speech and gestures as input ones</span>
+            </li>
+            <li>
+                <span>4</span>Evaluation
+                <span>A quality model based on the ISO/IEC 9126 is defined for mobile medical translation systems</span>
+            </li>
+            <li>
+                <span>5</span>Conclusions
+                <span></span>
+            </li>
+        </ul>
+	</div>
+
+
+
+
+	<!-- Regulus platform -->
+    
+    <!-- First milestone -->
+    <div id="milestones-1" class="step center" data-x="-2500" data-y="-700">
+        <h2>The Regulus Platform</h2>
+        <ul class="top-list">
+            <li class="current">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    
+    </div>
+
+	<!-- Regulus in a nutshell -->
+	<div class="step slide" data-x="-1000" data-y="-700">
+        <h2>Regulus</h2>
+		<table width="900">
+            <td align="center">
+                <div class="distribute-horizontal">
+                    <div class="box bubble"><img src="img/regulus.png"/></div>
+                </div>
+            </td>
+        </table>
+        <div>
+			<q>Open source platform for constructing rule-based medium-vocabulary spoken dialogue applications</q>
+        </div>
+    </div>
+    
+    <!-- Show Regulus key components -->
+	<div class="step slide" data-x="500" data-y="-700">
+        <h2>Key Modules</h2>
+		<div id="opacity-image-40">
+            <div class="image-wrapper-40">
+                <img src="img/regulus-modules.png" width="750">
+            </div>
+        </div>
+	</div>
+
+    
+	<!-- Show message in Prolog, JSON and XML notation -->
+<div class="step example" data-x="2000" data-y="-700">
+	    <h2>Recognition Message in Different Notations</h2>
+        <pre class="prettyprint linenums lang-prolog"><ol class="linenums"><li class="L0"><code><span class="kwd">action_for_session</span>(<span class="pun">0.9059477290138602</span>,</code></li><li class="L1"><code>	<span class="kwd">action_sequence</span>(</code></li><li class="L1"><code>		<span class="kwd">recognise_and_dialogue_process_from_wavfile</span>(<span class="pun">c:/foobar.wav</span>)))</code></li></ol></pre>
+        <pre class="prettyprint linenums lang-json">
+<ol class="linenums"><li class="L0"><code>{ <span class="kwd">"*action_for_session"</span>:</code></li><li class="L1"><code>	[ <span class="pun">"0.9059477290138602"</span>, {</code></li><li class="L2"><code>		<span class="kwd">"*action_sequence"</span>: [</code></li><li class="L3"><code>			{ <span class="kwd">"*recognise_and_dialogue_process_from_wavfile"</span>:</code></li><li class="L3"><code>				[ <span class="pun">"c:/foobar.wav"</span> ]}]}]}</code></li></ol></pre>
+        <pre class="prettyprint linenums lang-xml"><ol class="linenums"><li class="L0"><code><span class="kwd">&lt;action_for_session&gt;</span></code></li><li class="L1"><code>	<span class="kwd">&lt;atom&gt;</span><span class="pun">0.9059477290138602</span><span class="kwd">&lt;/atom&gt;</span></code></li><li class="L2"><code>	<span class="kwd">&lt;action_sequence&gt;</span></code></li><li class="L3"><code>		<span class="kwd">&lt;recognise_and_dialogue_process_from_wavfile&gt;</span></code></li><li class="L4"><code>			<span class="kwd">&lt;atom&gt;</span><span class="pun">c:/foobar.wav</span><span class="kwd">&lt;/atom&gt;</span></code></li><li class="L5"><code>		<span class="kwd">&lt;/recognise_and_dialogue_process_from_wavfile&gt;</span></code></li><li class="L6"><code>	<span class="kwd">&lt;/action sequence&gt;</span></code></li><li class="L6"><code><span class="kwd">&lt;/action for session&gt;</span></code></li></ol></pre>
+        
+        <!--<span class="legend"><a href="http://...">http://...</a></span>-->
+	</div>
+
+	<!-- Used applications implemented with Regulus -->
+	<!-- Calendar -->
+    <div class="step slide" data-x="3500" data-y="-700">
+        <h2>Calendar</h2>
+        <div class="substep">
+            <div class="box bubble">Offers multi-modal access to a meeting database</div>
+        </div>
+        <div class="substep">
+            <div class="box bubble">Vocabulary of 211 words</div>
+		</div>
+        <div class="substep">
+            <div class="box bubble">
+            	<div>"What meetings are there next week?"</div>
+				<div>"Where is the meeting?"</div>
+                <div>"What are my next three meetings?"</div>
+				<div>"Will Marianne attend?"</div>
+                <div>"Will anyone from IDIAP be at the meeting?"</div>
+            </div>
+		</div>
+    </div>
+
+	<!-- MedSLT -->
+	<div class="step slide" data-x="5000" data-y="-700">
+        <h2>MedSLT</h2>        
+        <div>
+            <div class="box bubble">Multilingual spoken language translation system designed for medical domains</div>
+		</div>
+         <div class="substep">
+            <div class="box bubble">Help in situations where no common language exists between the doctor and the patient</div>
+		</div>
+        <div class="substep">
+			<div class="box bubble">
+            	<div>Headache/Chest pain/Abdominal pain</div>
+            	<div>"Does bright light make the pain worse?"</div>
+			</div>
+		</div>
+        <div class="substep">
+            <div class="box bubble">English, French, Spanish, Catalan, Arabic, Japanese</div>
+		</div>
+	</div>
+    
+	<!-- CALL-SLT -->
+	<div class="step slide" data-x="6500" data-y="-700">
+        <h2>CALL-SLT</h2>        
+        <div>
+            <div class="box bubble">Computer assisted second language learning system</div>
+		</div>
+		<div class="substep">
+			<div class="box bubble">        
+				<div>Restaurant: "Ich möchte einen hamburger"</div>
+				<div>About me: "Mon frère s'appelle Stéphane"</div>
+   				<div>Travel: "I need one ticket to London"</div>
+			</div>
+		</div>
+        <div class="substep">
+			<div class="box bubble">        
+				<div>L1: English, French, Japanese, German, Arabic, Chinese</div>
+				<div>L2: English, French, Japanese, German, Greek, Swedish</div>
+			</div>
+		</div>
+    </div>
+
+
+
+
+	<!-- Design architectures -->
+
+    <!-- Second milestone -->
+    <div id="milestones-2" class="step center" data-x="-3000" data-y="300">
+        <h2>Design</h2>
+        <ul class="top-list">
+            <li>1</li>
+            <li class="current">2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+
+    <div class="step slide" data-x="-2000" data-y="300" data-scale='0.5'>
+        <h2>Overview</h2>
+		<ul>
+	        <li>Designed two architectures that present different advantages & disadvantages</li>
+    	    <li>First one created from scratch - Suitable for low-end devices</li>
+    	    <li>Second one extends the Paideia Inc. Framework - Suitable for cloud-based deployments</li>
+            <li>Both use distributed architecture</li>
+        </ul>
+    </div>
+    
+	<div class="step slide" data-x="-1000" data-y="300" data-scale='0.5'>
+    	<h2>ASR Topologies</h2>
+        
+	 	<div class="distribute-horizontal">
+	        <div class="box bubble">Network Speech Recognition</div>
+    	    <div class="box bubble">Distributed Speech Recognition</div>
+        	<div class="box bubble">Embedded Speech Recognition</div>
+        </div>
+                    
+        <div id="opacity-image-9">
+            <div class="image-wrapper-9">
+                <img src="img/ASR-topology.png" width="890">
+            </div>
+        </div>
+		
+    </div>
+    
+	<div class="step slide" data-x="0" data-y="300" data-scale='0.5'>
+        <h2>Selecting A Topology</h2>
+		<ul>
+        	<li>Chose to use NSR, because:
+            <ul>
+	        	<li>Speech recognition that is carried out on the server side can be combined with considerably more elaborate server-side functionality </li>
+            	<li>The proliferation of low cost wireless data networks and cloud-based computing are already stimulating a paradigm shift from standalone speech applications to speech services</li>
+        	</ul>
+			</li>
+		</ul>
+    </div>
+    
+	<div class="step slide" data-x="1000" data-y="300" data-scale='0.5'>
+        <h2>High Level Architecture</h2>
+        <div id="opacity-image-10">
+	        <div class="image-wrapper-10">
+    		    <img src="img/architecture1.png" width="845">
+        	</div>
+        </div>
+    </div>
+    
+    
+	<div class="step slide invisible" data-x="1000" data-y="300" data-scale='0.5'>
+        <h2>High Level Architecture</h2>
+        <div id="opacity-image-10">
+	        <div class="image-wrapper-10">
+    		    <img src="img/architecture2.png" width="845">
+        	</div>
+        </div>
+    </div>
+    
+	<div class="step slide" data-x="2000" data-y="300" data-scale='0.5'>
+        <h2>Proposed Architectures</h2>
+        <ul>         
+            <li>First solution:
+                <ul>
+                    <li>Topology &rarr; Network Speech Recognition (NSR)</li>
+                    <li>Signaling &rarr; Media Resource Control Protocol (MRCP)</li>
+                    <li>Streaming Audio &rarr; Real-time Transport Protocol (RTP)</li> 
+                </ul>
+            </li>
+			<li>Second solution:
+                <ul>
+                    <li>Topology &rarr; Network Speech Recognition (NSR)</li>
+                    <li>Signaling &rarr; JavaScript Object Notation (JSON)</li>
+                    <li>File-based Audio &rarr; Real-time Transport Protocol (RTP)</li> 
+                </ul>
+            </li>           
+        </ul>
+    </div>
+    
+    	<!--<div class="step example" data-x="2000" data-y="600" data-scale='0.25'>
+       	<h2>Media Resource Control Protocol (MRCP)</h2>
+  		<p></p>     
+  		<pre class="prettyprint linenums lang-mrcp">
+			<code>
+RECOGNITION-COMPLETE 543257 COMPLETE MRCP/1.0
+
+Completion-Cause: 000 success
+Waveform-URL: http://web.media.com/session123/audio.wav
+Content-Type: application/x-nlsml
+Content-Length: 276
+
+&lt;xml version=&quot;1.0&quot;&gt;
+&lt;result x-model=&quot;http://IdentityModel&quot;
+    xmlns:xf=&quot;http://www.w3.org/2000/xforms&quot;
+    grammar=&quot;session:request1@foro-level.store&quot;&gt;
+    &lt;interpretation&gt;
+        &lt;xf:instance name=&quot;Person&quot;&gt;
+            &lt;Person&gt;
+                &lt;Name&gt; Andre Roy &lt;/Name&gt;
+            &lt;/Person&gt;
+        &lt;/xf:instance&gt;
+        &lt;input&gt; may I speak to Andre Roy &lt;/input&gt;
+    &lt;/interpretation&gt;
+&lt;/result&gt;</code></pre>
+    </div>
+    
+	<div class="step slide" data-x="0" data-y="300" data-scale='0.25'>
+    	<h2>First Architecture</h2>
+      	<table width="1400" border="0">            
+            <tr>
+                <td>
+                    <ul>
+						<li>Topology: NSR</li>
+                        <li>Signaling: MRCP</li>
+						<li>Streaming Audio: RTP</li>                       
+                        <div id="opacity-image-10">
+            				<div class="image-wrapper-10">
+                				<img src="img/architecture-MRCP.png" width="491">
+            				</div>
+        				</div>
+                    </ul>
+                </td>
+            </tr>
+        </table> 
+    </div>
+    
+    -->
+
+	<div class="step slide" data-x="3000" data-y="300" data-scale='0.5'>
+        <h2>Performance</h2>
+         <ul>
+	        <li>Deployed the Calendar, MedSLT and CALL-SLT applications on different mobile devices</li>
+    	    <li>Compared mobile and desktop versions</li>
+        	<li>Word Error Rate (WER), Sentence Error Rate (SER), Semantic Error Rate (SemER), Response Latency and Concurrent Users</li>
+       	 </ul>
+    </div>
+
+	<!-- Show the performance plots -->
+	<div class="step slide visible" data-x="4000" data-y="300" data-scale='0.5'>
+		<h2>Error Rates &amp; Response Latency</h2>
+        <p>desktop:&nbsp;<img src="img/desktop.png" width="30" height="30">&nbsp;&nbsp;&nbsp;mobile:&nbsp;<img src="img/mobile.png" width="30" height="30"></p>
+        <meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+        <style>
+        	canvasWER{
+        	}
+			canvasLatency{
+    	    }
+        </style>
+
+        <canvas id="canvasWER" height="350" width="445"></canvas>
+        <canvas id="canvasLatency" height="350" width="440"></canvas>
+        
+	    <script>
+        
+			var barChartData1 = {
+				ypostfix : ["%"],
+				labels : ["WER","SemER","SER"],
+				datasets : [
+					{
+						fillColor : "rgba(200,127,60,0.5)",
+						strokeColor : "rgba(200,127,60,1)",
+						data : [6.7,29.7,11.0]
+					},
+					{
+						fillColor : "rgba(151,187,205,0.5)",
+						strokeColor : "rgba(151,187,205,1)",
+						data : [6.3,29.7,11.3]
+					}
+				]			
+			}
+			
+			var barChartData2 = {
+				ypostfix : ["s"],
+				labels : ["Laten. Rec.","Laten. Trans."],
+				datasets : [
+					{
+						fillColor : "rgba(200,127,60,0.5)",
+						strokeColor : "rgba(200,127,60,1)",
+						data : [2.838, 0.479]
+					},
+					{
+						fillColor : "rgba(151,187,205,0.5)",
+						strokeColor : "rgba(151,187,205,1)",
+						data : [3.470, 0.634]
+					}
+				]			
+			}
+			
+			//var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Bar(barChartData);
+			
+        </script>
+
+	</div>
+    
+   	<div class="step slide" data-x="5000" data-y="300" data-scale='0.5'>
+        <h2>Comparing The Two Architectures</h2>
+         <div id="opacity-image-11">
+            <div class="image-wrapper-11">
+                <img src="img/prons-cons.png" width="750">
+            </div>
+        </div>        
+    </div>
+    
+    <div class="step slide" data-x="6000" data-y="300" data-scale='0.5'>
+         <h2>My Contributions</h2>    
+        <ul>
+            <li class="substep"><em>Extended</em> the Regulus platform for hosting speech-enabled applications on mobile devices</li>
+            <li class="substep">Introduced topologies that <em>alleviate</em> the load on end-user devices</li>
+            <!--<li class="substep">Create frameworks that can be easily <em>adapted</em> for similar applications</li>-->
+            <li class="substep">Performance on the mobile is essentially <em>identical</em> to that on a standard desktop PC</li>
+            <li class="substep">Acquired different <em>speech corpora</em> for a number of languages</li>  
+        </ul>
+    </div>
+    
+	
+    
+	
+    
+    
+        
+	<!-- Interaction studies -->
+
+    <!-- Third milestone -->
+    <div id="milestones-3" class="step center" data-x="-5000" data-y="-2800">
+        <h2>Interaction</h2>
+        <ul class="top-list">
+            <li>1</li>
+            <li>2</li>
+            <li class="current">3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    
+    </div>
+    
+    <!-- Modalities and human senses -->    
+	<div class="step slide" data-x="-5000" data-y="-2300" data-scale='0.25'>
+		<h2>Input/Output Modalities</h2>
+        <div id="opacity-image-12">
+            <div class="image-wrapper-12">
+                <img src="img/modalities.png" width="875">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modalities used in my work -->
+    <div class="step slide invisible" data-x="-5000" data-y="-2300" data-scale='0.25'>
+   		<h2>Input/Output Modalities</h2>
+        <div id="opacity-image-12">
+            <div class="image-wrapper-12">
+                <img src="img/modalities2.png" width="875">
+            </div>
+        </div>
+    </div>
+    
+    <!-- My user studies -->
+    <div class="step slide" data-x="-5000" data-y="-1800" data-scale='0.25'>
+		<h2>Overview</h2>
+		<ul>
+	        <li class="substep">Blend speech input and multimedia output:
+    	    	<ul>
+		            <li>Expose system's understanding</li>
+        		    <li>Prompt users to perform a new interaction</li>
+				</ul>
+			</li>            
+    	    <li class="substep">Speech and hand gestures</li>
+            <li class="substep">Diverse target groups:
+    	    	<ul>
+		            <li>School students</li>
+                    <li>People through crowd-sourcing</li>
+        		    <li>People with functional diversity</li>
+				</ul>
+			</li>       
+        </ul>
+    </div>
+
+	<!-- Start with the first problem -->
+	<div class="step slide invisible" data-x="-5000" data-y="-1800" data-scale='0.25'>
+		<h2>Overview</h2>
+		<ul>
+	        <li>Blend speech input and multimedia output:
+    	    	<ul>
+		            <li><em>Expose system's understanding</em></li>
+        		    <li>Prompt users to perform a new interaction</li>
+				</ul>
+			</li>            
+    	    <li>Speech and hand gestures</li>
+            <li>Diverse target groups:
+    	    	<ul>
+		            <li>School students</li>
+                    <li>People through crowd-sourcing</li>
+        		    <li>People with functional diversity</li>
+				</ul>
+			</li>       
+        </ul>
+    </div>
+    
+    <!-- Rephrasing study -->
+    
+    <!-- Motivation -->
+    <div class="step slide" data-x="-6000" data-y="-1300" data-scale='0.25'>
+        <h2>Why Exposing System's Understanding?</h2>
+		<ul>
+            <li class="substep">Improving quality of speech recognition is important</li>
+			<li class="substep">But system's understanding may be far from what the user originally meant</li>
+            <li class="substep">"When is the meeting next Friday?"
+            	<ul>
+                	<li>"When is the meeting on the Friday closest to today?"</li>
+                    <li>"When is the meeting on Friday next week?"</li>
+            	</ul>
+            </li>
+            <li class="substep">Effects of presenting what the system understood</li>
+            <li class="substep">Presentation = enriched rephrased version of the user's input</li>
+		</ul>
+    </div>
+    
+    <!-- Used rephrasing mechanisms -->
+	<div class="step slide" data-x="-6000" data-y="-800" data-scale="0.25">
+		<h2>Rephrasing Mechanisms</h2>
+        <div id="opacity-image-13">
+            <div class="image-wrapper-13">
+                <img src="img/rephrase.png" width="850">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Experiment -->
+    <div class="step slide" data-x="-6000" data-y="-300" data-scale='0.25'>
+		<h2>Case Study</h2>
+        <ul>
+            <li>14 subjects were split into two groups - Each group used one of the two systems (Calendar/MedSLT)</li>
+            <li>Users were presented either with their rephrased input or the raw recognition result</li>
+            <li>Users confirmed if what was understood by the system was what they originally meant</li>  
+        </ul>
+    </div>
+    
+    <!-- Mobile Interface -->
+    <div class="step slide invisible" data-x="-6000" data-y="-300" data-scale="0.5">
+        <div id="opacity-image-14">
+            <div class="image-wrapper-14">
+                <img src="img/rephrase-HCI.png" width="620">
+                <div class="caption">Interface</div>
+            </div>
+        </div>
+    </div>
+
+	<!-- Metrics -->
+	<div class="step slide" data-x="-6000" data-y="200" data-scale='0.25'>
+        <h2>What I Measure?</h2>
+        <ul>
+            <li><em>Mental workload.</em> How much time it takes to confirm the output?</li>
+            <li><em>Efficiency.</em> What is the utility of the rephrasing mechanism?</li>
+            <li><em>Accuracy.</strong></em> To what extent users discard correct output or accept false output?</li>
+            <li><em>Short-term learning.</em> Do users learn something from the structure of the rephrased output?</li>
+            <li><em>ASR performance.</em> What is the performance of the speech recognition system in both cases?</li>
+            <li><em>Subjective opinion.</em> What is the impression of users?</li>
+        </ul>
+    </div>
+      
+    <!-- Results -->
+	<div class="step slide" data-x="-6000" data-y="700" data-scale='0.25'>
+        <h2>Key Results</h2>
+    
+        <ul>
+            <li class="substep">Accepting a rephrased speech transcription does indeed <em>increase</em> mental effort compared to raw transcription</li>
+            <li class="substep">The mental effort is <em>not increased</em> for the subsequent interaction</li>
+            <!--<li class="substep">Task performance is <em>increased</em> for the rephrased version as it hides unimportant errors</li>
+            <li class="substep">Subjects exhibit a strong <em>preference</em> for either rephrasing or repeating their input after a misrecognition</li>
+            <li class="substep"><em>10%</em> of the rephrased output was rejected even if it was correct</li>-->
+            <li class="substep"><em>Few</em> indications of short-term learning</li>
+            <li class="substep">More <em>confident</em> in the system's ability to deal with misunderstandings when the rephrased version is used</li>  
+        </ul>        
+    </div>   
+    
+	<!-- Images Study -->
+    <!-- Continue with the second problem -->
+	<div class="step slide invisible" data-x="-5000" data-y="-1800" data-scale='0.25'>
+		<h2>Overview</h2>
+		<ul>
+	        <li>Blend speech input and multimedia output:
+    	    	<ul>
+		            <li>Expose system's understanding</li>
+        		    <li><em>Prompt users to perform a new interaction</em></li>
+				</ul>
+			</li>            
+    	    <li>Speech and hand gestures</li>
+            <li>Diverse target groups:
+    	    	<ul>
+		            <li>School students</li>
+                    <li>People through crowd-sourcing</li>
+        		    <li>People with functional diversity</li>
+				</ul>
+			</li>       
+        </ul>
+    </div>
+    
+    <!-- Different user studies -->
+    <div class="step slide" data-x="-5000" data-y="-1300" data-scale='0.25'>
+		<h2>Multimedia Prompts</h2>
+         <div id="opacity-image-15">
+            <div class="image-wrapper-15">
+                <img src="img/multimedia-prompts.png" width="750">
+            </div>
+        </div>       
+    </div>
+    
+    <!-- Image prompts in CALL-SLT -->
+    <div class="step slide" data-x="-5000" data-y="-800" data-scale='0.25'>
+        <h2>Using Image Prompts</h2>
+        <p>French native speaker (L1) practicing English (L2) (restaurant domain)</p>
+        <p>&nbsp;</p>
+		<div id="opacity-image-16">
+            <div class="image-wrapper-16">
+                <img src="img/text-image-prompts.png" width="850">
+            </div>
+        </div>
+    </div>
+
+<!--	<div class="step slide" data-x="-5000" data-y="-300" data-scale='0.5'>
+        <p>Image type: 83 Sketch, 102 Hybrid, 67 Text, 78 Numbers, 6 Symbols</p>
+        <div id="opacity-image-16">
+            <div class="image-wrapper-16">
+                <img src="img/image-prompts.png" width="700">
+            </div>
+        </div>
+    </div>    -->
+
+	<!-- Experiment -->
+    <div class="step slide" data-x="-5000" data-y="-300" data-scale='0.25'>
+        <h2>Case Study</h2>
+        <ul>
+            <li>32 subjects (16 male – 16 female), age between 16 – 19 years old</li>
+            <li>Native French speakers, none bilingual in English</li>
+            <li>Half of the male/female subjects used the text version and the other half the pictorial one</li>
+            <li>Each user performed around 30 interactions</li>
+            <li>Scored on their correct answers</li>
+        </ul>
+    </div>
+    
+    <!-- Results -->
+    <div class="step slide" data-x="-5000" data-y="200" data-scale='0.25'>
+        <h2>Key Results</h2>
+        <ul>
+            <li class="substep">Male users tend to interact <em>more rapidly</em> when introduced to image prompts</li>
+            <li class="substep">Both male/female groups are <em>equally efficient</em> on their final score but some small differences in their score patterns were found</li>
+            <!--<li class="substep">Female users speak much <em>less loudly</em> when they are prompted with images instead of text</li>-->
+            <li class="substep">Male subjects report that on average they <em>prefer</em> images, whereas female ones text</li>
+            <div class="substep invisible">
+            	<p>&nbsp;</p>
+                <p><img src="img/iconscollection__exclamation_mark.jpg" width="50">&nbsp;Gender differences in end-user interaction still receive <em>little</em> research attention</p>
+            </div>
+        </ul>
+    </div>
+    
+    <!-- Videos Study -->
+	
+<!--  
+    
+    <div class="step slide" data-x="-5000" data-y="1700" data-scale='0.25'>
+        <h2>Amazon Mechanical Turk</h2>
+        <table width="1400" border="0">            
+            <tr>
+                <td>
+                    <ul>
+                        <li>Crowd-sourcing service</li>
+                        <li>Vast source of experimental subjects</li>
+						<li>Well suited to the tasks of generating and processing natural language</li>
+						<li>More utilization in the field of interface design</li>
+                        <li>HIT = Human Intelligence Task</li>
+                        <div id="opacity-image-17">
+            				<div class="image-wrapper-17">
+                				<img src="img/mechturk.png" width="900">
+            				</div>
+        				</div>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="step slide" data-x="-5000" data-y="2200" data-scale='0.25'>
+        <h2>First Case Study</h2>
+        <ul>
+            <li>English native speakers learning Greek</li>
+            <li>Restaurant domain</li>
+            <li>Lessons:
+            	<ul>
+                	<li>yes, no, hello, etc.</li>
+                    <li>Asking with the equivalent of "I would like" and the future tense</li>
+                    <li>Numbers and prices</li>
+                    <li>Making a reservation</li>
+                    <li>Where-questions</li>
+                </ul>
+            </li>
+		</ul>
+    </div>
+    
+    <div class="step slide invisible" data-x="-5000" data-y="2700" data-scale='0.25'>
+        <h2>Text/Video Prompt</h2>
+            <div id="opacity-image-18">
+           		<div class="image-wrapper-18">
+                	<img src="img/text-video-prompt.png" width="900">
+	            </div>
+    	    </div>
+    </div>
+    
+    <div class="step slide invisible" data-x="-5000" data-y="2700" data-scale='0.25'>
+        <h2>Experiment</h2>
+		<ul>           
+            <li>Recruited 10 subjects through AMT</li>
+			<li>2 groups: different versions of system</li>
+			<li>1 text, 1 video</li>
+			<li>3 HITs – one per day</li>
+			<li>Cost: $2/HIT</li>
+		</ul>
+    </div>
+    
+    <div class="step slide" data-x="-5000" data-y="3200" data-scale='0.25'>
+        <h2>Key Results</h2>
+        <ul>
+            <li>Users found it more attractive to interact with a system which gave prompts in video form</li>
+			<li>More data was acquired when video prompts were used</li>
+		</ul>
+    </div>-->
+    
+	 <!-- Video prompts in CALL-SLT -->
+    <div class="step slide" data-x="-5000" data-y="700" data-scale='0.25'>
+        <h2>Using Video Prompts</h2>
+		<table width="1000" border="0">            
+            <tr>
+                <td>
+                	<div id="opacity-image-19">
+                        <div class="image-wrapper-19">
+                            <img src="img/avatar.png" width="550">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+	
+    <!-- Content -->
+    <div class="step slide" data-x="-5000" data-y="1200" data-scale='0.25'>
+        <h2>Lessons</h2>
+        <ul>
+			<li>Content organized into four French lessons</li>
+            <li>Talking about myself: Mon prénom est Marc ("My name is Marc")</li>
+			<li>Talking about my family: J'ai deux frères ("I have two brothers")</li>
+			<li>Restaurant: Je voudrais un café ("I would like a coffee")</li>
+			<li>Dates and times: Il est dix-neuf heures ("It is seven o'clock")</li>
+		</ul>
+    </div>
+
+<!--    <div class="step slide" data-x="-5000" data-y="1700" data-scale='0.25'>
+        <h2>Amazon Mechanical Turk</h2>
+        <table width="1400" border="0">            
+            <tr>
+                <td>
+                    <ul>
+                        <li>Crowd-sourcing service</li>
+                        <li>Vast source of experimental subjects</li>
+						<li>Well suited to the tasks of generating and processing natural language</li>
+						<li>More utilization in the field of interface design</li>
+                        <li>HIT = Human Intelligence Task</li>
+                        <div id="opacity-image-17">
+            				<div class="image-wrapper-17">
+                				<img src="img/mechturk.png" width="900">
+            				</div>
+        				</div>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+-->
+	
+    <!-- Experiment -->
+	<div class="step slide" data-x="-5000" data-y="1700" data-scale='0.25'>
+		<h2>Experiment</h2>
+      	<ul>
+            <li>Recruited 130 subjects through Amazon Mechanical Turk</li>
+            <li>4 groups: different versions of system</li>
+            <li>3 real, 1 control (<em>no speech recognition</em>)</li>
+            <li>7 HITs<sup>*</sup> over 1 week – one per day</li>
+            <li>24 students completed course</li>
+            <li>Total cost: ~$750 ($2/HIT)</li>
+			<p>* HIT = Human Intelligence Task</p>        
+        </ul>
+    </div>
+
+<!--    <div class="step slide" data-x="-5000" data-y="2700" data-scale='0.25'>
+        <h2>Sequence Of HITs</h2>
+        <ul>
+            <li>Recruitment</li>
+            <li>Pre-test</li>
+            <li>4 CALL-SLT lessons</li>
+            <li>Revision (practice all lessons)</li>
+            <li>Post-test</li>
+        </ul>
+    </div>
+-->
+
+	<!-- Show the result plots -->
+	<div class="step slide visible" data-x="-5000" data-y="2200" data-scale='0.25'>
+		<h2>Improvement per User &amp; Per Prompt</h2>
+        <p>Comparisons based on a pre- and a post-test</p>
+		<p>rec:&nbsp;<img src="img/desktop.png" width="30" height="30">&nbsp;&nbsp;&nbsp;no-rec:&nbsp;<img src="img/mobile.png" width="30" height="30"></p>  
+        
+		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+        <style>
+        	canvasImprovement{
+        	}			
+        </style>
+
+        <table>
+            <td>
+	            <canvas id="canvasImprovement" height="350" width="500"></canvas> 
+            </td>
+            <td>
+    	        <div id="transform" class="substep invisible">
+                    <div class="content">
+                        <div class="tag">Both versions work!</div>
+                    </div>
+            	</div>
+			</td>
+            <td><div class="substep invisible"><img src="img/baffled2.jpg" width="80"></div></td>
+        </table>                 
+
+    	<script>
+        
+			var barChartData3 = {
+				ypostfix : [""],
+				labels : ["Per User","Per Prompt"],
+				datasets : [
+					{
+						fillColor : "rgba(200,127,60,0.5)",
+						strokeColor : "rgba(200,127,60,1)",
+						data : [4,18]
+					},
+					{
+						fillColor : "rgba(151,187,205,0.5)",
+						strokeColor : "rgba(151,187,205,1)",
+						data : [3,9]
+					}
+				]			
+			}
+			
+			//var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Bar(barChartData);
+			
+        </script>
+        
+	</div>
+
+	<!-- Results -->
+	<div class="step slide invisible" data-x="-5000" data-y="2200" data-scale='0.25'>
+        <h2>Key Results</h2>
+        <ul>
+            <li>I could justify our claim that speech recognition <em>helps</em> the student improve their speaking ability</li>
+            <li>CALL systems evaluations need to incorporate a <em>control group</em> during the experiment, otherwise they run the risk of misinterpreting the obtained results</li>
+<!--        <li class="substep">If we use students from same class, they will be aware of the other version</li>
+			<li class="substep">If we use students from different classes, hard to correct for fact that some classes are much better than others</li>-->
+		</ul>
+    </div>
+
+    
+    <!-- Gestures Study -->
+    <!-- Continue with the third problem -->
+	<div class="step slide invisible" data-x="-5000" data-y="-1800" data-scale='0.25'>
+		<h2>Overview</h2>
+		<ul>
+	        <li>Blend speech input and multimedia output:
+    	    	<ul>
+		            <li>Expose system's understanding</li>
+        		    <li>Prompt users to perform a new interaction</li>
+				</ul>
+			</li>            
+    	    <li><em>Speech and hand gestures</em></li>
+            <li>Diverse target groups:
+    	    	<ul>
+		            <li>School students</li>
+                    <li>People through crowd-sourcing</li>
+        		    <li>People with functional diversity</li>
+				</ul>
+			</li>       
+        </ul>
+    </div>
+    
+    <!-- Why gestures can help? -->
+	<div class="step slide" data-x="-4000" data-y="-1300" data-scale='0.25'>
+		<h2>Why Gestures?</h2>
+        <ul>
+            <li>Gesture modality can enhance interaction</li>
+            <li>Special kinds of disabilities</li>
+            <li>Useful for people with functional diversity</li>
+		</ul>
+        <div class="distribute-horizontal">
+	        <div class="box bubble"><img src="img/mother.jpg"/></div>
+    	    <div class="box bubble"><img src="img/sunny.jpg"/></div>
+        	<div class="box bubble"><img src="img/gloves.jpg"/></div>
+        	<div class="box bubble"><img src="img/palsy.jpg"/></div>            
+        </div>	
+
+    </div>
+      
+    <!-- Core commands that apply to any SDS -->
+    <div class="step slide" data-x="-4000" data-y="-800" data-scale='0.25'>
+    	<div id="opacity-image-20">
+            <div class="image-wrapper-20">
+                <img src="img/gestures.png" width="700">
+                <div class="caption">Core commands: move forward and backward in the dialogue flow, start and stop speaking, get help and abort an ongoing action</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Used Methodology -->
+	<div class="step slide" data-x="-4000" data-y="-300" data-scale='0.25'>
+    	<h2>Methodology</h2>
+        <ul>
+            <li>Introduced 6 concise and intuitively meaningful gestures</li>
+            <li>Recruited 8 subjects to perform and to evaluate them</li>
+            <li>Performed gesture classification tasks</li>
+            <li>Examined the social acceptability of this type of interaction</li>
+            <li>Performed user studies with 8 subjects and 3 people from functional diversity groups</li>
+		</ul>
+    </div>
+    
+    <!-- Used features 1/4 -->
+    <div class="step slide" data-x="-4000" data-y="200" data-scale='0.25'>
+        <div id="opacity-image-21">
+            <div class="image-wrapper-21">
+                <img src="img/axes1.png" width="1000">
+                <div class="caption">Acceleration axes - Feature space</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Used features 2/4 -->
+	<div class="step slide invisible" data-x="-4000" data-y="200" data-scale='0.25'>
+        <div id="opacity-image-21">
+            <div class="image-wrapper-21">
+                <img src="img/axes2.png" width="1000">
+                <div class="caption">Acceleration axes - Feature space</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Used features 3/4 -->
+	<div class="step slide invisible" data-x="-4000" data-y="200" data-scale='0.25'>
+        <div id="opacity-image-21">
+            <div class="image-wrapper-21">
+                <img src="img/axes3.png" width="1000">
+                <div class="caption">Acceleration axes - Feature space</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Used features 4/4 -->
+	<div class="step slide invisible" data-x="-4000" data-y="200" data-scale='0.25'>
+        <div id="opacity-image-21">
+            <div class="image-wrapper-21">
+                <img src="img/axes4.png" width="1000">
+                <div class="caption">Acceleration axes - Feature space</div>
+            </div>
+        </div>
+    </div>
+    
+	<!--<div class="step slide" data-x="-4000" data-y="700" data-scale='0.25'>
+		<div id="opacity-image-22">
+            <div class="image-wrapper-22">
+                <img src="img/scatter.png" width="1100">
+                <div class="caption">Separation of gestures in acceleration-space</div>
+            </div>
+        </div>
+    </div>-->
+    
+    <!-- Classification techniques -->
+	<div class="step slide" data-x="-4000" data-y="1200" data-scale='0.25'>
+        <h2>Gestures Classification</h2>
+        <ul>
+            <li>Machine learning techniques: Support Vector Machines, Naive Bayes, Ensembles of Balanced Nested Dichotomies, Decision Trees, Functional Trees, Random Forest, Nearest Neighbor, Multilayer Perceptron, Dynamic Time Warping, Hidden Markov Models</li>
+			<li>Error rates:
+            	<ul>
+                	<li>SVMs = 7.5%</li>
+                    <li>HMMs = 4.5%</li>
+                </ul>
+            </li>
+			<li>SVMs used in the user studies</li>
+		</ul>
+    </div>
+    
+<!--	<div class="step slide" data-x="-4000" data-y="1700" data-scale='0.25'>
+		<div id="opacity-image-23">
+            <div class="image-wrapper-23">
+                <img src="img/charts.png" width="1200">
+                <div class="caption">Subjective opinion of the proposed gesture set</div>
+            </div>
+        </div>
+    </div>
+    
+	<div class="step slide" data-x="-4000" data-y="2200" data-scale='0.25'>
+		<div id="opacity-image-24">
+            <div class="image-wrapper-24">
+                <img src="img/acceptability.png" width="800">
+                <div class="caption">Social Acceptability</div>
+            </div>
+        </div>
+    </div>-->
+    
+    <!-- Experiment -->
+	<div class="step slide" data-x="-4000" data-y="1700" data-scale='0.25'>
+    	<h2>User Studies</h2>
+        <ul>
+	        <li>Different gesture-driven interfaces using CALL-SLT</li>
+            <li>Recruited 8 right-handed people</li>
+            <li>Task of three steps: 
+                <ul>
+                    <li>going back or forward in the prompt list</li>
+                    <li>asking for help</li>
+                    <li>initiating recognition</li>
+                </ul>
+            </li>
+		</ul>
+    </div>
+    
+    <!-- Results -->
+    <div class="step slide" data-x="-4000" data-y="2200" data-scale='0.25'>
+    	<h2>Key Results</h2>
+        <ul>
+            <li class="substep">Interacting with gestures does impose a <em>small</em> mental overhead</li>
+            <li class="substep">There is <em>no significant</em> degradation in average task score for gesture interfaces</li>
+            <li class="substep">Users say they feel <em>comfortable</em> while performing the gestures</li>
+            <li class="substep">Our gestures exhibit <em>high social acceptability</em> in different public places and in front of different audiences</li>
+            <!--<li class="substep">Users express strong agreement that gesture interfaces can <em>help</em></li>-->
+            <li class="substep">Evidence to suggest that gesture interaction is suitable for people with <em>functional diversity</em> (cerebral palsy, blind, elder)</li>
+		</ul>
+    </div>
+    
+	<!--<div class="step slide" data-x="-4000" data-y="3200" data-scale='0.25'>
+    	<h2>Take Home Messages</h2>
+        <ul>
+            <li>Importance to expose the system's understanding before proceeding in the dialogue flow</li>
+            <li>Importance of considering possible gender differences when designing a user interface</li>
+            <li>Importance of control studies in CALL</li>
+            <li>Importance of alternative input modalities when interacting with a mobile spoken dialogue application</li>
+		</ul>
+    </div>-->
+        
+	<!-- Evaluation model -->
+
+    <!-- Fourth milestone -->
+    <div id="milestones-4" class="step center" data-x="-3000" data-y="1200">
+        <h2>Evaluation</h2>
+        <ul class="top-list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li class="current">4</li>
+            <li>5</li>
+        </ul>
+    
+    </div>
+    
+    <!-- About evaluation -->
+    <div class="step slide" data-x="-1500" data-y="1200">
+		<h2>Evaluation</h2>
+        <ul>
+            <li>Integral part of any system development process</li>
+          <li>Qualitative and quantitative evaluation</li>
+            <li>Already shown evaluation studies:
+            	<ul>
+                	<li>Architectures for network speech recognition</li>
+                	<li>Introducing a new feature in user interaction</li>
+                </ul>
+            </li>
+          <li>But these assess a facet of the problem &rarr; <em>Holistic approach</em></li>
+		</ul>
+    </div>
+    
+    <!-- Medical Speech Translation -->
+	<div class="step slide" data-x="-1500" data-y="1700">
+		<h2>Medical Speech Translation Systems</h2>
+        <ul>
+            <li>Exploit my previous experience from developing similar applications</li>
+            <li>Present an intriguing research area</li>
+            <li>Proposed a quality model based on the ISO/IEC 9126 standard as comparison basis for medical speech translators</li>
+		</ul>
+	</div>
+      
+    <!-- Show the Pathway to healthcare -->  
+    <div id="photo" class="step slide visible" data-x="0" data-y="1200">
+        <h2>The Pathway To Healthcare</h2>
+        <div id="opacity-image-30" class="substep">
+            <div class="image-wrapper-30">
+                <img src="img/Pathway.jpg" width="870">
+                <div class="caption">H&ocirc;pital de Nyon - Suisse</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Assess quality for this type of systems -->
+	<div id="impact-anim2" class="step slide invisible" data-x="0" data-y="1200">        
+		<p class="animation"><em>Quality in this context</em></p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+	</div>
+    
+    <!-- The ISO model -->    
+    <div class="step slide" data-x="1500" data-y="1200">
+		<h2>The ISO/IEC Quality Model</h2>
+        <ul>
+            <li>A generic quality model for the evaluation of any software product</li>
+            <li>Tree-like hierarchy of quality characteristics</li>
+            <li>Quality characteristics represent the desired features of a system</li>
+            <li>Characteristics are divided into the ones that describe the external view of the software and the ones that focus on its internal aspect</li>
+		</ul>
+    </div>
+    
+    <!-- Example of characteristics -->
+    <div class="step slide invisible" data-x="1500" data-y="1700" data-scale="1.0">
+      <div id="opacity-image-31">
+            <div class="image-wrapper-31">
+                <img src="img/factors.png" align="middle" width="1100">
+            </div>
+        </div>
+    </div>
+    
+    <!-- The three main tasks -->
+    <div class="step slide" data-x="1500" data-y="2200" data-scale="1.0">
+    	<h2>My Tasks</h2>
+        <ul>
+			<li class="substep">Carefully state all the system's relevant aspects as characteristics of the quality model, which will be used later for the evaluation of the system</li>
+            <li class="substep">Define a scoring scheme, in order to weight the characteristics in the model by their importance relative to the scenario where the system is intended to be used</li>
+            <li class="substep">Propose metrics for the end-nodes characteristics of the hierarchy</li>
+		</ul>
+    </div>
+    
+    <!-- User studies -->
+	<div class="step slide" data-x="1500" data-y="2700" data-scale="1.5">
+    	<h2>Data Collection</h2>
+        <ul>
+        	<li>Decomposed the model into a hierarchy of characteristics</li>
+			<li>Recruited 12 doctors and 12 potential patients for the external characteristics and 6 developers for the internal ones</li>
+            <li>Filled a questionnaire consisting of pair-wise comparisons of the characteristics, expressed with an application specific statement</li>
+            <li>Analysis of answers with the Analytical Hierarchy Process</li>
+		</ul>
+    </div>
+      
+    <!-- Example from the questionnaire -->     
+    <div class="step slide" data-x="3000" data-y="1200">
+        <div id="opacity-image-32">
+            <div class="image-wrapper-32">
+                <img src="img/questionnaire.png" align="middle" width="1100">
+                <div class="caption">choose a number in a scale of 1-9 favoring the feature you like most</div>
+            </div>
+        </div>
+    </div>
+    
+<!--    <div class="step slide" data-x="4500" data-y="1200">
+		<h2>Mutual Comparisons</h2>
+        <div id="opacity-image-33">
+            <div class="image-wrapper-33">
+                <img src="img/comparisons.png" width="1000">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="step slide" data-x="-3000" data-y="2300" data-scale="0.5">
+    	<h2>Analytical Hierarchy Process</h2>
+        <table width="1400" border="0">            
+            <tr>
+                <td>
+                    <ul>
+                        <li>Deals with complex decision making</li>
+                        <li>Captures both subjective and objective evaluation measures</li>
+                        <li>Checks consistency of the evaluation measures</li>
+                        <div id="opacity-image-34">
+            				<div class="image-wrapper-34">
+                				<img src="img/ahp.png" width="500">
+            				</div>
+        				</div>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>--> 
+    
+    <!-- Derived quality model -->   
+	<div class="step slide" data-x="-3000" data-y="2300" data-scale="0.5">
+		<h2>Weighted Quality Model</h2>
+		<div id="opacity-image-35">
+            <div class="image-wrapper-35">
+                <img src="img/weighted-model.png" align="middle" width="870">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Proposed metrics -->
+    <div class="step slide" data-x="-2000" data-y="2300" data-scale="0.5">
+    	<h2>Metrics</h2>
+        <div id="opacity-image-39">
+            <div class="image-wrapper-39">
+                <img src="img/metrics.png" align="middle" width="870">
+				<div class="caption">104 metrics for 24 end-note characteristics</div>
+            </div>
+        </div>
+    </div>
+    
+    
+   <!-- <div class="step slide" data-x="-2000" data-y="2300" data-scale="0.5">
+        <div id="opacity-image-36">
+            <div class="image-wrapper-36">
+                <img src="img/answers.png" align="middle" width="850">
+                <div class="caption">Importance of attributes for the two target groups</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="step slide" data-x="0" data-y="2300" data-scale="0.5">
+		<h2>Consistency?</h2>
+        <div id="opacity-image-37">
+            <div class="image-wrapper-37">
+                <img src="img/transitive.png" width="700">
+            </div>
+        </div>
+        <p>An acceptable value of Consistency Ratio in order to obtain reliable results is below 10%</p>
+    </div>
+    
+    <div class="step slide" data-x="3000" data-y="2300" data-scale="0.5">
+    	<h2>Remarks</h2>
+        <ul>
+			<li>Initial evaluation started with 16 doctors, 20 patients & 9 developers</li>
+            <li>With all subjects the CR was too high</li>
+			<li>After eliminating subjects with high CR the overall CR dropped to an acceptable 10%</li>
+		</ul>
+    </div>
+    
+    
+    <div class="step slide invisible" data-x="4000" data-y="2300" data-scale="0.5">
+      <div id="opacity-image-38">
+            <div class="image-wrapper-38">
+                <img src="img/consistency-graphs.png" align="middle" width="800">
+                <div class="caption">Consistency Ratios</div>
+            </div>
+        </div>
+    </div>
+
+
+	<div class="step slide" data-x="-1000" data-y="2300" data-scale="0.5">
+    	<h2>Metrics</h2>
+        <ul>
+        	<li>End-nodes of the model must be measurable attributes</li>
+			<li>Proposed 104 metrics for 24 end-note characteristics</li>
+            <li>Total score of the system under evaluation:
+            	<ul>
+           			<li>Combination of all partial scores into a single one</li>
+		            <li>Results presented in such a way to provide an overview of the product's quality</li>
+                 </ul>
+            </li>
+		</ul>
+    </div>-->
+    
+    <!-- Summary of results -->
+    <div class="step slide" data-x="-1000" data-y="2300" data-scale="0.5">
+    	<h2>My Contributions</h2>
+        <ul>
+			<li class="substep">Defined an <em>ISO-compliant quality model</em> for mobile medical speech translation applications</li>
+            <li class="substep">Polled three diverse groups of subjects to elicit what features are <em>deemed important</em></li>
+			<li class="substep">Proposed a set of relevant <em>metrics</em></li>
+            <!--<li class="substep">Addressed issues related to the design and implementation of similar <em>surveys</em></li>-->
+            <li class="substep">The offered methodology can be used as an <em>inspiration</em> for creating similar models for diverse speech-enabled systems</li>
+		</ul>
+    </div>
+    
+    
+    
+    <!-- Conclusions -->
+    
+    <!-- Fifth milestone -->
+    <div id="milestones-5" class="step center" data-x='4500' data-y='0' data-z='450' data-scale='0.2' data-rotate-x='-60' data-rotate-y='45'>
+        <h2>Conclusions</h2>
+		<ul class="top-list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li class="current">5</li>
+        </ul>
+    
+    </div>
+
+	<!-- Summary of contributions for the three research areas -->
+    <div class="step slide" data-x='5500' data-y='0' data-z='450' data-scale='0.2' data-rotate-x='-60' data-rotate-y='45'>
+         <h2>Conclusions</h2>
+		 <ul>
+        	<li class="substep"><em>Design</em>
+            	<ul>
+                	<li>Two architectures for network speech recognition</li>
+                    <li>Similar performance between desktop/mobile versions</li>
+                </ul>
+            </li>
+	        <li class="substep"><em>Interaction</em>
+	            <ul>
+                	<li>Multimedia prompts as output modalities</li>
+                    <li>Speech and gestures as input modalities</li>
+                </ul>
+            </li>
+    	    <li class="substep"><em>Evaluation</em>
+	            <ul>
+                	<li>Integrated quality model as evaluation framework</li>
+                </ul>
+            </li>
+	    </ul>
+    </div>
+    
+<!--	<div class="step slide" data-x='6500' data-y='0' data-z='450' data-scale='0.2' data-rotate-x='-60' data-rotate-y='45'>
+         <h2>Looking ahead ...</h2>
+          <ul>
+        	<li class="substep">Design
+            	<ul>
+                	<li>HTML5</li>
+                </ul>
+            </li>
+	        <li class="substep">Interaction
+	            <ul>
+                	<li>Social networks and gamification</li>
+                    <li>Complementary knowledge sources for guessing user's intention</li>
+                </ul>
+            </li>
+    	    <li class="substep">Evaluation
+	            <ul>
+               	  <li>Quality in use</li>
+	                <li>Software Product Quality Requirements and Evaluation (SQuaRE)</li>
+                	<li>The FEMTI framework.</li>
+                </ul>
+            </li>
+	    </ul>
+    </div>-->
+     
+    <!-- Acknowledgements and Q/A -->
+    <div id="end" data-x='7500' data-y='0' data-z='450' data-scale='0.2' data-rotate-x='-60' data-rotate-y='45' class="step">
+      <div class="credits">
+            <h2><a href="#title" class="title">Acknowledgements</a></h2>
+            <p><a href="http://www.unige.ch/fti/" target="_blank">Faculté de traduction et d'interprétation (FTI)</a></p>
+            <p><a href="http://www.snf.ch/" target="_blank">Fonds national suisse de la recherche scientifique (FNS)</a></p> 
+			<p><a href="http://www.unige.ch/rectorat/Pbs.html" target="_blank">Ernest Boninchi Foundation</a></p>
+			<p><a href="http://societe.academique.unige.ch/" target="_blank">Société académique de Genève</a></p>
+            <p><a href="http://www.ass-grecosuisse-eynard.ch/" target="_blank">Association Gréco-Suisse Jean-Gabriel Eynard</a></p>
+            <p><a href="http://www.nokia.com/" target="_blank">Nokia</a>, <a href="http://www.nuance.com/" target="_blank">Nuance</a>, <a href="http://www.paideiacomputing.com" target="_blank">Paideia Computing</a></p>
+     
+     		<h2><a href="#title" class="title"></a></h2>
+            
+            <div class="substep">
+            	<div id="opacity-image-41">
+                    <div class="image-wrapper-41">
+	                    <p><img src="img/qanda.jpg" width="250" height="250"></p>
+                    </div>
+				</div>    
+            </div>
+        </div>    
+</div>
+
+
+<script src="lib/impress.js"></script>
+<script src="lib/impress-progress.js"></script>
+
+<script>
+
+	impress().init();
+	
+	!function(d,s,id)
+	{
+		var js,fjs=d.getElementsByTagName(s)[0];
+		if(!d.getElementById(id))
+		{
+			js=d.createElement(s);
+			js.id=id;js.src="http://platform.twitter.com/widgets.js";
+			fjs.parentNode.insertBefore(js,fjs);
+		}
+	}
+	
+	(document,"script","twitter-wjs");
+	(function() 
+	{
+		var po = document.createElement('script'); 
+		po.type = 'text/javascript'; po.async = true;
+		po.src = 'https://apis.google.com/js/plusone.js';
+		var s = document.getElementsByTagName('script')[0]; 
+		s.parentNode.insertBefore(po, s);
+	})();
+	
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-33401065-1']);
+	_gaq.push(['_trackPageview']);
+	
+	(function() {
+		var ga = document.createElement('script'); 
+		ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; 
+		s.parentNode.insertBefore(ga, s);
+	})();
+	
+	window.addEventListener('hashchange', function() {
+		_gaq.push(['_trackEvent', 'Step', 'move', window.location.hash]);
+	}, false);
+
+</script>
+
+
+</body></html>
